@@ -1,6 +1,7 @@
 package org.flipkart.Test;
 
 import org.flipkart.Base.BaseClass;
+import org.flipkart.Config.MyRetryAnalyzer;
 import org.flipkart.Page.SearchPage;
 import org.testng.annotations.Test;
 
@@ -8,7 +9,7 @@ import java.time.Duration;
 import java.util.Set;
 
 public class SearchProduct extends BaseClass {
-    @Test
+    @Test(retryAnalyzer = MyRetryAnalyzer.class)
     public void searchProduct() throws InterruptedException {
         SearchPage searchPage = new SearchPage(driver);
         searchPage.enterSearchText("Laptop");
